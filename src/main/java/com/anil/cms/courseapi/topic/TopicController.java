@@ -13,11 +13,18 @@ public class TopicController {
     @Autowired
     private TopicService topicService; 
 
+    @RequestMapping("/")
+    public String home() {
+
+        return "You can browse <br><strong>/topics <br> /topics/{id}</strong>";
+    }
+
     @RequestMapping("/topics")
     public List<Topic> getAllTopics() {
 
         return topicService.getAllTopics();
     }
+
     
     @RequestMapping("/topics/{id}")
     public Topic getTopicic(@PathVariable String id) {
