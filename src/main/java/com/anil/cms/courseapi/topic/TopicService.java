@@ -9,13 +9,17 @@ import org.springframework.stereotype.Service;
 public class TopicService {
 
     List<Topic> topics = Arrays.asList(
-              new Topic("1","Big Data","Study of big data technolgis and underlying techniques"), 
-              new Topic("2","Artificial Intelligence","Study of machine learning and artificial intelligence"), 
-              new Topic("3","Database Studies","Study of database magement systems"), 
-              new Topic("4","Computational Mathematics","Study of big mathematics used during computations")
+              new Topic("big-data","Big Data","Study of big data technolgis and underlying techniques"), 
+              new Topic("ai","Artificial Intelligence","Study of machine learning and artificial intelligence"), 
+              new Topic("database-studies","Database Studies","Study of database magement systems"), 
+              new Topic("comp-mathematics","Computational Mathematics","Study of big mathematics used during computations")
     );
         
     public List<Topic> getAllTopics() {
         return topics;
+    }
+
+    public Topic getTopic(String id) {
+       return topics.stream().filter(t -> t.getId().equals(id)).findFirst().get();
     }
 }
