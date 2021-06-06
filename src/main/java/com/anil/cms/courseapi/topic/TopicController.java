@@ -2,6 +2,9 @@ package com.anil.cms.courseapi.topic;
 
 import java.util.List;
 
+import com.anil.cms.courseapi.status.Status;
+import com.anil.cms.courseapi.status.StatusService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,13 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class TopicController {
 
     @Autowired
-    private TopicService topicService; 
+    private TopicService topicService;
 
-    @RequestMapping("/")
-    public String home() {
-
-        return "You can browse <br><strong>/topics <br> /topics/{id}</strong>";
-    }
 
     @RequestMapping("/topics")
     public List<Topic> getAllTopics() {
